@@ -31,8 +31,8 @@ namespace ShortageManager
         private Button button2;
         private Button button3;
 
-        private Font button_font = new Font ( "MS UI Gothic", 11F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(128)));
-        private Font standard_font = new Font("MS UI Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(128)));
+        private Font button_font;
+        private Font standard_font;
 
 
         /// <summary>
@@ -41,6 +41,8 @@ namespace ShortageManager
         /// </summary>
         private void InitializeComponent()
         {
+            this.button_font = new Font ( "MS UI Gothic", 11F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(128)) );
+            this.standard_font = new Font ( "MS UI Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(128)) );
             this.button1 = new Button();
             this.button2 = new Button();
             this.button3 = new Button();
@@ -58,7 +60,6 @@ namespace ShortageManager
             this.panel1.Controls.Add ( button1 );
             this.panel1.Controls.Add ( button2 );
             this.panel1.Controls.Add ( button3 );
-
             //
             // button1
             //
@@ -73,7 +74,6 @@ namespace ShortageManager
             this.button1.Text = "欠品検索";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new EventHandler ( this.DispShortage );
-
             //
             // button2
             //
@@ -88,7 +88,6 @@ namespace ShortageManager
             this.button2.Text = "売れ筋検索";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new EventHandler ( this.DispHotSeller );
-
             //
             // button3
             //
