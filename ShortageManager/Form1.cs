@@ -16,5 +16,20 @@ namespace ShortageManager
         {
             InitializeComponent();
         }
+
+        public void DispShortage ( object sender, EventArgs e )
+        {
+            ShowShortageFrame();
+        }
+
+        public void DispHotSeller ( object sender, EventArgs e )
+        {
+            ShowSellerFrame();
+        }
+
+        public void DispInsertData ( object sender, EventArgs e )
+        {
+            ShowInsertFrame();
+        }
     }
 }
