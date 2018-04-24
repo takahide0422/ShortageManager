@@ -55,5 +55,21 @@ namespace ShortageManager
         {
             Console.WriteLine ( sender.ToString() );
         }
+
+        // button7
+        public  void OpenFile_Click ( object sender, EventArgs e )
+        {
+            if ( openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                textBox4.Clear();
+                textBox4.Text = openFileDialog.FileName;
+            }
+            else
+            {
+                return;
+            }
+
+
+        }
     }
 }

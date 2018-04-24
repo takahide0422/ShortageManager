@@ -29,6 +29,8 @@ namespace ShortageManager
         private Panel panel1;
         private Panel panel2;
 
+        private OpenFileDialog openFileDialog;
+
         private GroupBox groupBox1;
         private GroupBox groupBox2;
 
@@ -57,7 +59,6 @@ namespace ShortageManager
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -122,10 +123,6 @@ namespace ShortageManager
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(600, 500);
             this.panel2.TabIndex = 1;
-
-            BaseFrameSearch();
-            ShowShortageFrame ();
-
             // 
             // Form1
             // 
@@ -137,7 +134,6 @@ namespace ShortageManager
             this.Name = "Form1";
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -204,7 +200,7 @@ namespace ShortageManager
             // dateTimePicker1
             //
             this.dateTimePicker1.CalendarFont = standard_font;
-            this.dateTimePicker1.Location = new Point ( 155, 130 );
+            this.dateTimePicker1.Location = new Point ( 155, 128 );
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new Size ( 130, 19 );
             this.dateTimePicker1.TabIndex = 0;
@@ -333,8 +329,13 @@ namespace ShortageManager
         private void CreateInstanceForInsertData()
         {
             this.groupBox2 = new GroupBox();
+            this.openFileDialog = new OpenFileDialog();
             this.label8 = new Label();
+            this.label9 = new Label();
+            this.label10 = new Label();
+            this.textBox4 = new TextBox();
             this.button6 = new Button();
+            this.button7 = new Button();
 
             // 
             // groupBox2
@@ -343,6 +344,12 @@ namespace ShortageManager
             this.groupBox2.Name = "groupBox1";
             this.groupBox2.Size = new Size(580, 480);
             this.groupBox2.TabStop = true;
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.DefaultExt = "xlsx";
+            this.openFileDialog.FileName = "openFileDialog1";
+            this.openFileDialog.Filter = "(*.xlsx)|*.xlsx";
             //
             // label8
             //
@@ -352,6 +359,32 @@ namespace ShortageManager
             this.label8.Name = "label4";
             this.label8.Size = new Size(100, 20);
             this.label8.Text = "データ入力";
+            //
+            // label9
+            //
+            this.label9.AutoSize = true;
+            this.label9.Font = standard_font;
+            this.label9.Location = new Point(48, 130);
+            this.label9.Name = "label1";
+            this.label9.Size = new Size(25, 16);
+            this.label9.Text = "　日　付　:";
+            //
+            // label10
+            //
+            this.label10.AutoSize = true;
+            this.label10.Font = standard_font;
+            this.label10.Location = new Point(48, 204);
+            this.label10.Name = "label1";
+            this.label10.Size = new Size(25, 16);
+            this.label10.Text = " ファイル　:";
+            //
+            // textBox4
+            //
+            this.textBox4.Font = standard_font;
+            this.textBox4.Location = new Point ( 155, 200 );
+            this.textBox4.Size = new Size ( 200, 16 );
+            this.textBox4.Name = "textBox4";
+            this.textBox4.TabIndex = 1;
             //
             // button6
             //
@@ -363,6 +396,17 @@ namespace ShortageManager
             this.button6.Text = "登録";
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new EventHandler ( this.InsertDataButton );
+            //
+            // button7  ファイル出力ダイアログ用
+            //
+            this.button7.BackColor = SystemColors.ControlDarkDark;
+            this.button7.Location = new Point( 360, 196 );
+            this.button7.Size = new Size ( 30, 27 );
+            this.button7.Name = "button7";
+            this.button7.Text = "...";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.TabIndex = 2;
+            this.button7.Click += new EventHandler ( this.OpenFile_Click );
         }
 
         private void AddControlsForShortage ()
@@ -397,7 +441,12 @@ namespace ShortageManager
         private void AddControlsForInsertData()
         {
             this.groupBox2.Controls.Add ( label8 );
+            this.groupBox2.Controls.Add ( label9 );
+            this.groupBox2.Controls.Add ( label10 );
+            this.groupBox2.Controls.Add ( textBox4 );
+            this.groupBox2.Controls.Add ( dateTimePicker1 );
             this.groupBox2.Controls.Add ( button6 );
+            this.groupBox2.Controls.Add ( button7 );
         }
 
         private Label label4;
@@ -479,7 +528,11 @@ namespace ShortageManager
 
 
         private Label label8;
+        private Label label9;
+        private Label label10;
+        private TextBox textBox4;
         private Button button6;
+        private Button button7;
 
         // データ入力画面 position = 3
         protected void ShowInsertFrame()
@@ -516,7 +569,6 @@ namespace ShortageManager
 
             e.Handled = true;
         }
-
     }
 }
 
