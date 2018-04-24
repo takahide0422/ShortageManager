@@ -296,6 +296,7 @@ namespace ShortageManager
             this.button4.TabIndex = 5;
             this.button4.Text = "検索";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new EventHandler ( this.SearchShortageButton );
         }
 
         // 売れ筋検索用コントロールのインスタンス化
@@ -314,10 +315,11 @@ namespace ShortageManager
             this.button5.TabIndex = 5;
             this.button5.Text = "検索";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new EventHandler ( this.SearchHotSellerButton );
             //
             // label7
             //
-            this.label7.AutoSize = false;
+            this.label7.AutoSize = true;
             this.label7.Font = new Font("MS UI Gothic", 15F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(128)));
             this.label7.Location = new Point(234, 30);
             this.label7.Name = "label7";
@@ -325,6 +327,42 @@ namespace ShortageManager
             this.label7.TextAlign = ContentAlignment.MiddleCenter;
             this.label7.Text = "売れ筋検索";
 
+        }
+
+        // データ入力画面用コントロールのインスタンス化
+        private void CreateInstanceForInsertData()
+        {
+            this.groupBox2 = new GroupBox();
+            this.label8 = new Label();
+            this.button6 = new Button();
+
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Location = new Point(10, 10);
+            this.groupBox2.Name = "groupBox1";
+            this.groupBox2.Size = new Size(580, 480);
+            this.groupBox2.TabStop = true;
+            //
+            // label8
+            //
+            this.label8.AutoSize = false;
+            this.label8.Font = new Font("MS UI Gothic", 15F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(128)));
+            this.label8.Location = new Point(234, 30);
+            this.label8.Name = "label4";
+            this.label8.Size = new Size(100, 20);
+            this.label8.Text = "データ入力";
+            //
+            // button6
+            //
+            this.button6.BackColor = SystemColors.ControlDarkDark;
+            this.button6.Location = new Point(225, 408);
+            this.button6.Name = "button4";
+            this.button6.Size = new Size(75, 35);
+            this.button6.TabIndex = 5;
+            this.button6.Text = "登録";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new EventHandler ( this.InsertDataButton );
         }
 
         private void AddControlsForShortage ()
@@ -355,6 +393,12 @@ namespace ShortageManager
             this.groupBox1.Controls.Add ( button5 );
         }
 
+
+        private void AddControlsForInsertData()
+        {
+            this.groupBox2.Controls.Add ( label8 );
+            this.groupBox2.Controls.Add ( button6 );
+        }
 
         private Label label4;
         private Label label5;
@@ -391,7 +435,7 @@ namespace ShortageManager
             this.panel2.Controls.Add(groupBox1);
 
             recent_position = 1;
-            Console.WriteLine ( recent_position );
+            Console.WriteLine ( "recent_position = " + recent_position );
         }
 
 
@@ -430,24 +474,30 @@ namespace ShortageManager
             AddControlsForHotSeller();
             
             recent_position = 2;
-            Console.WriteLine ( recent_position );
+            Console.WriteLine ( "recent_position = " + recent_position );
         }
 
+
+        private Label label8;
+        private Button button6;
 
         // データ入力画面 position = 3
         protected void ShowInsertFrame()
         {
-            if ( recent_position == 3 ) return;
-            
-            this.panel2.Controls.Clear();
+            if (recent_position == 3) return;
 
             if (!createdPosition3)
             {
-                this.groupBox2 = new GroupBox();
+                CreateInstanceForInsertData();
+                this.createdPosition3 = true;
             }
 
+            this.panel2.Controls.Clear();
+            AddControlsForInsertData();
+            this.panel2.Controls.Add ( groupBox2 );
+
             recent_position = 3;
-            Console.WriteLine ( recent_position );
+            Console.WriteLine ("recent_position = " + recent_position);
         }
 
 
