@@ -38,7 +38,7 @@ namespace ShortageManager
         private Button button2;
         private Button button3;
 
-        private Font button_font;
+        private Font bold_font;
         private Font standard_font;
 
         private int recent_position = 0;
@@ -53,6 +53,9 @@ namespace ShortageManager
         /// </summary>
         private void InitializeComponent()
         {
+            this.standard_font = new Font ("MS UI Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(128)));
+            this.bold_font = new Font ("MS UI Gothic", 11F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(128)));
+
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -65,7 +68,7 @@ namespace ShortageManager
             // 
             this.button1.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button1.Font = bold_font;
             this.button1.Location = new System.Drawing.Point(50, 50);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 30);
@@ -78,7 +81,7 @@ namespace ShortageManager
             // 
             this.button2.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button2.Font = bold_font;
             this.button2.Location = new System.Drawing.Point(50, 130);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 30);
@@ -91,7 +94,7 @@ namespace ShortageManager
             // 
             this.button3.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("MS UI Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button3.Font = bold_font;
             this.button3.Location = new System.Drawing.Point(50, 210);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(100, 30);
@@ -123,6 +126,10 @@ namespace ShortageManager
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(600, 500);
             this.panel2.TabIndex = 1;
+
+            BaseFrameSearch();
+            ShowShortageFrame();
+
             // 
             // Form1
             // 
@@ -154,7 +161,7 @@ namespace ShortageManager
         // 検索画面用コントロールのインスタンス化
         protected void BaseFrameSearch ()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox1 = new GroupBox();
             this.label1 = new Label();
             this.label2 = new Label();
             this.label3 = new Label();
@@ -173,7 +180,7 @@ namespace ShortageManager
             // label1
             //
             this.label1.AutoSize = true;
-            this.label1.Font = standard_font;
+            this.label1.Font = bold_font;
             this.label1.Location = new Point ( 48, 130 );
             this.label1.Name = "label1";
             this.label1.Size = new Size ( 25, 16 );
@@ -182,7 +189,7 @@ namespace ShortageManager
             // label2
             //
             this.label2.AutoSize = true;
-            this.label2.Font = standard_font;
+            this.label2.Font = bold_font;
             this.label2.Location = new Point(314, 130);
             this.label2.Name = "label1";
             this.label2.Size = new Size(25, 16);
@@ -191,7 +198,7 @@ namespace ShortageManager
             // label3
             //
             this.label3.AutoSize = true;
-            this.label3.Font = standard_font;
+            this.label3.Font = bold_font;
             this.label3.Location = new Point(48, 204);
             this.label3.Name = "label1";
             this.label3.Size = new Size(25, 16);
@@ -249,7 +256,7 @@ namespace ShortageManager
             // label5
             //
             this.label5.AutoSize = true;
-            this.label5.Font = standard_font;
+            this.label5.Font = bold_font;
             this.label5.Location = new Point ( 266, 204 );
             this.label5.Name = "label5";
             this.label5.Size = new Size ( 93, 20 );
@@ -258,7 +265,7 @@ namespace ShortageManager
             // label6
             //
             this.label6.AutoSize = true;
-            this.label6.Font = standard_font;
+            this.label6.Font = bold_font;
             this.label6.Location = new Point ( 48, 278 );
             this.label6.Name = "label6";
             this.label6.Size = new Size ( 87, 16 );
@@ -267,8 +274,8 @@ namespace ShortageManager
             // textBox2
             //
             this.textBox2.Font = standard_font;
-            this.textBox2.Location = new Point ( 332, 204 );
-            this.textBox2.Size = new Size ( 164, 23 );
+            this.textBox2.Location = new Point ( 350, 204 );
+            this.textBox2.Size = new Size ( 146, 23 );
             this.textBox2.MaxLength = 13;
             this.textBox2.Name = "textBox2";
             this.textBox2.TabIndex = 3;
@@ -363,7 +370,7 @@ namespace ShortageManager
             // label9
             //
             this.label9.AutoSize = true;
-            this.label9.Font = standard_font;
+            this.label9.Font = bold_font;
             this.label9.Location = new Point(48, 130);
             this.label9.Name = "label1";
             this.label9.Size = new Size(25, 16);
@@ -372,7 +379,7 @@ namespace ShortageManager
             // label10
             //
             this.label10.AutoSize = true;
-            this.label10.Font = standard_font;
+            this.label10.Font = bold_font;
             this.label10.Location = new Point(48, 204);
             this.label10.Name = "label1";
             this.label10.Size = new Size(25, 16);
@@ -389,6 +396,7 @@ namespace ShortageManager
             // button6
             //
             this.button6.BackColor = SystemColors.ControlDarkDark;
+            this.button6.Font = bold_font;
             this.button6.Location = new Point(225, 408);
             this.button6.Name = "button4";
             this.button6.Size = new Size(75, 35);
@@ -400,6 +408,7 @@ namespace ShortageManager
             // button7  ファイル出力ダイアログ用
             //
             this.button7.BackColor = SystemColors.ControlDarkDark;
+            this.button7.Font = bold_font;
             this.button7.Location = new Point( 360, 196 );
             this.button7.Size = new Size ( 30, 27 );
             this.button7.Name = "button7";
