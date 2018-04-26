@@ -8,8 +8,5 @@ namespace ShortageManager.model
 {
     class DBConnection
     {
-        protected const String connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
-                                            @"AttachDbFilename=|DataDirectory|\ShortageDatabase.mdf;" +
-                                            "Integrated Security = True; Connect Timeout = 30";
     }
 }
