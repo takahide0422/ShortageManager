@@ -356,7 +356,7 @@ namespace ShortageManager
             // 
             this.openFileDialog.DefaultExt = "xlsx";
             this.openFileDialog.FileName = "openFileDialog1";
-            this.openFileDialog.Filter = "(*.xlsx)|*.xlsx";
+            this.openFileDialog.Filter = "(*.csv)|*.csv";
             //
             // label8
             //

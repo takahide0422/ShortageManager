@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ShortageManager.model;
 
 namespace ShortageManager
 {
@@ -70,6 +71,11 @@ namespace ShortageManager
             }
 
 
+        }
+
+        private void testMethod ()
+        {
+            String line = Console.ReadLine ();
         }
     }
 }

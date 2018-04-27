@@ -66,8 +66,8 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="model\AbstractDBConnection.cs" />
-    <Compile Include="model\DBConnection.cs" />
+    <Compile Include="model\AbstractDBAction.cs" />
+    <Compile Include="model\Shortage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
