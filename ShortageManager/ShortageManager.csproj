@@ -60,14 +60,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="contract\AbstractDAO.cs" />
+    <Compile Include="contract\DBConnection.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="model\AbstractDBAction.cs" />
+    <Compile Include="contract\AbstractDBAction.cs" />
+    <Compile Include="model\IdManager.cs" />
+    <Compile Include="model\MainCategory.cs" />
+    <Compile Include="model\Product.cs" />
     <Compile Include="model\Shortage.cs" />
+    <Compile Include="model\SubCategory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

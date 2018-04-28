@@ -6,14 +6,19 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using ShortageManager.model;
+using ShortageManager.contract;
 
 namespace ShortageManager.model
 {
-    class Shortage : AbstractDBAction
+    class Shortage : AbstractDAO
     {
-        private SqlConnection con;
-        private SqlCommand command;
-        private SqlDataReader reader;
+        private const String T_SHORTAGE = "shortage";
+        private const String SHORTAGE_ID = "shortage_id";
+        private const String DATE = "date";
+        private const String TIMELINE = "timeline";
+        private const String PRODUCT_CD = "product_cd";
+        private const String QUANTITY = "quantity";
+
 
 
         /*
@@ -39,5 +44,6 @@ namespace ShortageManager.model
             Console.WriteLine(quantity);
             return int.Parse(quantity);
         }
+
     }
 }

@@ -75,7 +75,6 @@ namespace ShortageManager
 
         private void testMethod ()
         {
-            String line = Console.ReadLine ();
         }
     }
 }
