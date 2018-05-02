@@ -22,6 +22,8 @@ namespace ShortageManager.contract
 
                 int updated_num = command.ExecuteNonQuery();
 
+                Console.WriteLine ( "更新完了ROW数 : " + updated_num );
+
                 return updated_num;
             }
             catch (SqlException e)

@@ -60,15 +60,16 @@ namespace ShortageManager.model
         // next_idカラムの更新
         private static void updateNextId ( DBConnection db, String id_name, String id )
         {
-            String sql = "UPDATE " + ID_MANAGER + " SET " + NEXT_ID + " = " + nextId ( id ) +
+            String sql = "UPDATE " + ID_MANAGER + " SET " + NEXT_ID + " = " + createNextId ( id ) +
                 "\r\nWHERE " + ID_NAME + " = " + id_name;
 
             executeUpdate ( db, sql );
         }
 
         // next_idの生成
-        private static String nextId ( String id )
+        private static String createNextId ( String id )
         {
+            Console.WriteLine ( "used ID = " + id );
             char c = id[0];
             
             String id_num = id.Substring ( 1, 5 );
@@ -86,7 +87,10 @@ namespace ShortageManager.model
                 }
             }
 
-            return  c + id_num;
+            String createdID = c + id_num;
+
+            Console.WriteLine ( "created new ID = " + createdID );
+            return  createdID;
         }
     }
 }

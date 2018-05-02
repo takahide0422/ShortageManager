@@ -12,7 +12,7 @@ namespace ShortageManager.model
 {
     class Shortage : AbstractDAO
     {
-        private const String T_SHORTAGE = "shortage";
+        private const String SHORTAGE = "shortage";
         private const String SHORTAGE_ID = "shortage_id";
         private const String DATE = "date";
         private const String TIMELINE = "timeline";
@@ -20,14 +20,33 @@ namespace ShortageManager.model
         private const String QUANTITY = "quantity";
 
 
+        
+        /**
+         * 条件によるデータベース検索
+         * @state   conditions { firstDate, lastDate, mainCategory, jan, productName }
+         */
+        public static void selectForShortage ( DBConnection db, String[] conditions )
+        {
+
+        }
 
         /*
          * List内データ
          * string[] { date, timeline, product_cd, quantity }
          */
-        public void InsertShortageData(List<string[]> list)
+        public static void InsertShortageData( DBConnection db, List<String[]> list)
         {
-            int row_num = list.Count;
+            String insert_sql = "INSERT INTO " + SHORTAGE + "VALUES\r\n";
+
+            foreach ( String[] data in list )
+            {
+                insert_sql += "( " + IdManager.getNextId( db, SHORTAGE ) +
+                              ", " + data[0] + ", " + data[1] + ", " + data[2] + ", " + data[3] + " )\r\n";
+            }
+
+            Console.WriteLine ( "送信するSQL文 : " + insert_sql );
+
+            executeUpdate( db, insert_sql );
         }
 
         // 商品文字列から数量を取り出す
