@@ -16,6 +16,8 @@ namespace ShortageManager.contract
                 CommandText = sql
             };
 
+            Console.WriteLine("送信するSQL文 : " + sql);
+
             try
             {
                 con.Open();

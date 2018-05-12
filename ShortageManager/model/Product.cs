@@ -13,6 +13,7 @@ namespace ShortageManager.model
         private const String PRODUCT_CD = "product_cd";
         private const String PRODUCT_NM = "prduct_nm";
         private const String PRODUCT_PRICE = "product_price";
+        private const String MAIN_CATE_ID = "main_cate_id";
         private const String SUB_CATE_ID = "sub_cate_id";
     }
 }

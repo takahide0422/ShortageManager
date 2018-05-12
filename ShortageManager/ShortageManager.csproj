@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="contract\AbstractDAO.cs" />
+    <Compile Include="contract\AdjustForSQL.cs" />
     <Compile Include="contract\DBConnection.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
